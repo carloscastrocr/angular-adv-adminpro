@@ -1,0 +1,23 @@
+<div class="input-group">
+    <span class="input-group-btn">
+        <button [ngClass]="btnClass" 
+                (click)="cambiarValor(-5)" 
+                type="button">
+            <i class="fa fa-minus"></i>
+        </button>
+    </span>
+    <!--is-invalid es de boostrap pone el input en rojo-->
+    <input type="number" 
+           class="form-control" 
+           [ngClass]="{'is-invalid': progreso>100 || progreso <0}"
+           (ngModelChange)="onChange($event)"
+           [(ngModel)]="progreso"
+           placeholder="Progreso">
+    <span class="input-group-btn">
+        <button [ngClass]="btnClass"
+                (click)="cambiarValor(5)"
+                type="button">
+            <i class="fa fa-plus"></i>
+        </button>
+    </span>
+</div>
