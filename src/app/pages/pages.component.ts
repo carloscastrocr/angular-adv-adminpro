@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { SettingsService } from '../services/settings.service';
+
+//@ts-ignore.
+declare function customInitFunctions():void;
+//declare function customInitFunctions();
 
 @Component({
   selector: 'app-pages',
@@ -7,10 +12,15 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class PagesComponent implements OnInit {
-
-  constructor() { }
+  // llevamos la logica de carga del Theme al SettingsService
+  constructor(private settingsService:SettingsService) {  }
 
   ngOnInit(): void {
+    customInitFunctions();
   }
 
 }
+
+
+
+
