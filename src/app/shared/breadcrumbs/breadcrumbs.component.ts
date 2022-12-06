@@ -9,9 +9,11 @@ import { map, filter } from 'rxjs/operators';
   styles: [
   ]
 })
+
 export class BreadcrumbsComponent implements OnDestroy {
   public titulo!: string;
   public tituloSubs$!: Subscription;
+  
   constructor( private router:Router) { 
     this.tituloSubs$ = this.getArgumentosRuta()
                         .subscribe(({titulo})=>{
@@ -20,11 +22,11 @@ export class BreadcrumbsComponent implements OnDestroy {
                              document.title=`AdminPro - ${titulo}`;
                         });
   }
+  
   ngOnDestroy(): void {
     this.tituloSubs$.unsubscribe();
   }
 
-  
   
   getArgumentosRuta(){
     return this.router.events
@@ -36,3 +38,7 @@ export class BreadcrumbsComponent implements OnDestroy {
     
   }
 }
+
+
+
+
